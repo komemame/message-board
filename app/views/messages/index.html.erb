@@ -11,12 +11,26 @@
     <% end %>
   </div>
 </div>
-
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
+<div>
+<div class="container-fluid">
+  <div class="row">
+    <%= form_for(@message) do |f| %>
+      <div class="form-horizontal">
+        <div class="col-md-2">
+        名前:
+        </div>  
+        <%= f.text_area :name , :class => "col-md-10", :size => "100x1" %>
+        <!-- <%= f.text_field :name , :class => "col-lg-10" %> -->
+        <br>
+        <br>
+        <div class="col-md-2">
+        内容:
+        </div>
+        <%= f.text_area :body , :class => "col-md-10", :size => "100x4" %>
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit class: "btn btn-sm btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
