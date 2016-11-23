@@ -1,0 +1,33 @@
+<%= form_for(@message) do |f| %>
+    <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+        <%= alert %>
+        <ul>
+            <% @message.errors.full_messages.each do |full_message| %>
+                <li>
+                    <%= full_message %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<div class="container-fluid">
+  <div class="form-horizontal">
+    <div class="col-md-2">
+    名前:
+    </div>  
+    <%= f.text_area :name , :class => "col-md-10", :size => "100x1" %>
+    <!-- <%= f.text_field :name , :class => "col-lg-10" %> -->
+    <br>
+    <br>
+    <div class="col-md-2">
+    内容:
+    </div>
+    <%= f.text_area :body , :class => "col-md-10", :size => "100x4" %>
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+<% end %>
